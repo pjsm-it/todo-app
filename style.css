@@ -9,9 +9,25 @@ body {
 }
 
 header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     height: 60px;
-    border: 2px solid blue; /* TEMP: visual test */
+    padding: 0 20px;
     background-color: #003366;
+    color: white;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+#new-task-btn {
+    padding: 8px 16px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
 }
 
 #content {
@@ -24,7 +40,6 @@ header {
     flex-direction: column;
     flex: 1 1 0;           
     padding: 0 2px;        
-    border: 2px solid red;  /* TEMP: visual test */
 }
 
 #high-priority {
@@ -43,9 +58,13 @@ header {
     flex: 1;
     background-color: #8f8; 
 }
+
 #main {
     flex: 2 1 0;           
     padding: 0 5px;        
-    border: 2px solid green; /* TEMP: visual test */
     background-color: #fefcf5;
+}
+
+#main-content {
+    /* Container to insert tasks via JS */
 }
