@@ -1,0 +1,28 @@
+body {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    margin: 0;
+}
+
+header {
+    border: 2px solid blue; /* TEMP: visual test */
+    height: 60px;
+}
+
+#content {
+    display: flex;
+    flex: 1;
+}
+
+#sidebar {
+    border: 2px solid red;  /* TEMP: visual test */
+    flex: 1 1 0;
+    padding: 0px 5px 0px 5px;
+}
+
+#main {
+    border: 2px solid green;    /* TEMP: visual test */
+    flex: 2 1 0;
+    padding: 0px 5px 0px 5px;
+}
