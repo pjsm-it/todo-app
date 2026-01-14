@@ -1,13 +1,17 @@
-body {
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
+html, body {
+    height: 100%;
     margin: 0;
 }
 
+body {
+    display: flex;
+    flex-direction: column;
+}
+
 header {
-    border: 2px solid blue; /* TEMP: visual test */
     height: 60px;
+    border: 2px solid blue; /* TEMP: visual test */
+    background-color: #003366;
 }
 
 #content {
@@ -16,13 +20,32 @@ header {
 }
 
 #sidebar {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 0;           
+    padding: 0 2px;        
     border: 2px solid red;  /* TEMP: visual test */
-    flex: 1 1 0;
-    padding: 0px 5px 0px 5px;
 }
 
+#high-priority {
+    flex: 1;
+    background-color: #f88;
+    margin-bottom: 2px;     
+}
+
+#medium-priority {
+    flex: 1;
+    background-color: #ff8; 
+    margin-bottom: 2px;
+}
+
+#low-priority {
+    flex: 1;
+    background-color: #8f8; 
+}
 #main {
-    border: 2px solid green;    /* TEMP: visual test */
-    flex: 2 1 0;
-    padding: 0px 5px 0px 5px;
+    flex: 2 1 0;           
+    padding: 0 5px;        
+    border: 2px solid green; /* TEMP: visual test */
+    background-color: #fefcf5;
 }
