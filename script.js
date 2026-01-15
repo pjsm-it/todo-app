@@ -26,5 +26,30 @@ newTaskBtn.addEventListener('click', () => {
     saveBtn.textContent = 'Save';
     form.appendChild(saveBtn);
 
+    form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        
+        const taskName = input.value;
+        const priority = select.value;
+
+        const taskCard = document.createElement('div');
+        taskCard.textContent = taskName;
+
+        let targetColumn;
+
+        if (priority === 'high') {
+            targetColumn = document.getElementById('high-priority');
+        } else if (priority === 'medium') {
+            targetColumn = document.getElementById('medium-priority');
+        } else {
+            targetColumn = document.getElementById('low-priority');
+        }
+
+        targetColumn.appendChild(taskCard);
+
+        mainContent.innerHTML = '';
+    });
+
     mainContent.appendChild(form);
 });
+
