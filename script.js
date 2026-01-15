@@ -35,6 +35,8 @@ newTaskBtn.addEventListener('click', () => {
         const taskCard = document.createElement('div');
         taskCard.textContent = taskName;
 
+        taskCard.classList.add('task-card')
+
         let targetColumn;
 
         if (priority === 'high') {
