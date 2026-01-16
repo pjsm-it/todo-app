@@ -64,6 +64,14 @@ newTaskBtn.addEventListener('click', () => {
     form.addEventListener('submit', (e) => {
         e.preventDefault();
 
+        const phoneRegex = /^\+?351\s?\d{9}$/; 
+
+        // Phone input validation
+        if (inputPhone.value && !phoneRegex.test(inputPhone.value)) {
+            alert('Invalid phone number format. Example: +351 912345678');
+            return;
+        }
+
     const task = {
         title: inputTitle.value,
         priority: selectPriority.value,
