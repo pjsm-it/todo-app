@@ -85,3 +85,29 @@ header h1 {
 #main-content {
     /* Container to insert tasks via JS */
 }
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    max-width: 400px;
+    margin: 10px;
+}
+
+form input,
+form select,
+form textarea {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 6px;
+}
+
+input[type="date"] {
+    width: 100%;
+}
+
+label {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
