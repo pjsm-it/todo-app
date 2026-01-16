@@ -85,19 +85,50 @@ newTaskBtn.addEventListener('click', () => {
 
     console.log('Task created:', task)  // Testing purposes
 
-    // Card creation
     const taskCard = document.createElement('div');
-    taskCard.textContent = task.title;
     taskCard.classList.add('task-card');
 
+    // LEFT SIDE
+    const leftDiv = document.createElement('div');
+    leftDiv.classList.add('task-left');
+
+    const titleSpan = document.createElement('span');
+    titleSpan.textContent = task.title;
+    leftDiv.appendChild(titleSpan);
+
+    const completedCheckbox = document.createElement('input');
+    completedCheckbox.type = 'checkbox';
+    completedCheckbox.checked = task.completed;
+    leftDiv.appendChild(completedCheckbox);
+
+    const dueDateSpan = document.createElement('span');
+    dueDateSpan.textContent = task.dueDate ? `Due: ${task.dueDate}` : '';
+    leftDiv.appendChild(dueDateSpan);
+
+    taskCard.appendChild(leftDiv);
+
+    // RIGHT SIDE
+    const rightDiv = document.createElement('div');
+    rightDiv.classList.add('task-icons');
+
+    const deleteBtn = document.createElement('button');
+    deleteBtn.textContent = 'Del';
+    rightDiv.appendChild(deleteBtn);
+
+    const upBtn = document.createElement('button');
+    upBtn.textContent = '↑';
+    rightDiv.appendChild(upBtn);
+
+    const downBtn = document.createElement('button');
+    downBtn.textContent = '↓';
+    rightDiv.appendChild(downBtn);
+
+    taskCard.appendChild(rightDiv);
+
     let targetColumn;
-    if (task.priority === 'high') {
-        targetColumn = document.getElementById('high-priority');
-    } else if (task.priority === 'medium') {
-        targetColumn = document.getElementById('medium-priority');
-    } else {
-        targetColumn = document.getElementById('low-priority');
-    }
+    if (task.priority === 'high') targetColumn = document.getElementById('high-priority');
+    else if (task.priority === 'medium') targetColumn = document.getElementById('medium-priority');
+    else targetColumn = document.getElementById('low-priority');
 
     targetColumn.appendChild(taskCard);
 
