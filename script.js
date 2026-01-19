@@ -72,67 +72,79 @@ newTaskBtn.addEventListener('click', () => {
             return;
         }
 
-    const task = {
-        title: inputTitle.value,
-        priority: selectPriority.value,
-        description: textAreaDesc.value,
-        dueDate: inputDate.value,
-        completed: checkboxCompleted.checked,
-        email: inputEmail.value,
-        phone: inputPhone.value,
-        id: Date.now()
-    };
+        const task = {
+            title: inputTitle.value,
+            priority: selectPriority.value,
+            description: textAreaDesc.value,
+            dueDate: inputDate.value,
+            completed: checkboxCompleted.checked,
+            email: inputEmail.value,
+            phone: inputPhone.value,
+            id: Date.now()
+        };
 
-    console.log('Task created:', task)  // Testing purposes
+        console.log('Task created:', task)  // Testing purposes
 
-    const taskCard = document.createElement('div');
-    taskCard.classList.add('task-card');
+        const taskCard = document.createElement('div');
+        taskCard.classList.add('task-card');
 
-    // LEFT SIDE
-    const leftDiv = document.createElement('div');
-    leftDiv.classList.add('task-left');
+        // LEFT SIDE
+        const leftDiv = document.createElement('div');
+        leftDiv.classList.add('task-left');
 
-    const titleSpan = document.createElement('span');
-    titleSpan.textContent = task.title;
-    leftDiv.appendChild(titleSpan);
+        // TITLE ROW
+        const titleRow = document.createElement('div');
+        titleRow.classList.add('task-title-row'); // flex horizontal
 
-    const completedCheckbox = document.createElement('input');
-    completedCheckbox.type = 'checkbox';
-    completedCheckbox.checked = task.completed;
-    leftDiv.appendChild(completedCheckbox);
+        const titleSpan = document.createElement('span');
+        titleSpan.textContent = task.title;
+        titleRow.appendChild(titleSpan);
 
-    const dueDateSpan = document.createElement('span');
-    dueDateSpan.textContent = task.dueDate ? `Due: ${task.dueDate}` : '';
-    leftDiv.appendChild(dueDateSpan);
+        const completedCheckbox = document.createElement('input');
+        completedCheckbox.type = 'checkbox';
+        completedCheckbox.checked = task.completed;
+        titleRow.appendChild(completedCheckbox);
 
-    taskCard.appendChild(leftDiv);
+        leftDiv.appendChild(titleRow);
 
-    // RIGHT SIDE
-    const rightDiv = document.createElement('div');
-    rightDiv.classList.add('task-icons');
+        // DUE DATE ROW
+        const dueDateRow = document.createElement('div');
+        dueDateRow.classList.add('task-due-date');
 
-    const deleteBtn = document.createElement('button');
-    deleteBtn.textContent = 'Del';
-    rightDiv.appendChild(deleteBtn);
+        const dueDateSpan = document.createElement('span');
+        dueDateSpan.textContent = task.dueDate ? `Due: ${task.dueDate}` : '';
+        dueDateRow.appendChild(dueDateSpan);
 
-    const upBtn = document.createElement('button');
-    upBtn.textContent = '↑';
-    rightDiv.appendChild(upBtn);
+        leftDiv.appendChild(dueDateRow);
 
-    const downBtn = document.createElement('button');
-    downBtn.textContent = '↓';
-    rightDiv.appendChild(downBtn);
+        taskCard.appendChild(leftDiv);
 
-    taskCard.appendChild(rightDiv);
+        // RIGHT SIDE
+        const rightDiv = document.createElement('div');
+        rightDiv.classList.add('task-icons');
 
-    let targetColumn;
-    if (task.priority === 'high') targetColumn = document.getElementById('high-priority');
-    else if (task.priority === 'medium') targetColumn = document.getElementById('medium-priority');
-    else targetColumn = document.getElementById('low-priority');
+        const deleteBtn = document.createElement('button');
+        deleteBtn.textContent = 'Del';
+        rightDiv.appendChild(deleteBtn);
 
-    targetColumn.appendChild(taskCard);
+        const upBtn = document.createElement('button');
+        upBtn.textContent = '↑';
+        rightDiv.appendChild(upBtn);
 
-    mainContent.innerHTML = '';
+        const downBtn = document.createElement('button');
+        downBtn.textContent = '↓';
+        rightDiv.appendChild(downBtn);
+
+        taskCard.appendChild(rightDiv);
+
+        let targetColumn;
+        if (task.priority === 'high') targetColumn = document.getElementById('high-priority');
+        else if (task.priority === 'medium') targetColumn = document.getElementById('medium-priority');
+        else targetColumn = document.getElementById('low-priority');
+
+        targetColumn.appendChild(taskCard);
+
+        mainContent.innerHTML = '';
     });
 
     mainContent.appendChild(form);

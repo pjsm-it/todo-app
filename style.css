@@ -67,13 +67,52 @@ header h1 {
 }
 
 .task-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff8dc;
+    border: 1px solid #ccc;
     padding: 10px;
-    margin: 5px 0;
-    border: 1px solid #999;
-    border-radius: 5px;
-    background-color: #fff9c4;
-    box-shadow: 1px 1px 4px rgba(0,0,0,0.2);
-    font-weight: bold;
+    margin-bottom: 5px;
+    border-radius: 6px;
+    box-shadow: 1px 1px 3px rgba(0,0,0,0.1);
+}
+
+.task-left {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.task-title-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.task-due-date {
+    margin-top: 4px;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.task-icons {
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+}
+
+.task-icons button {
+    background-color: #eee;
+    border: 1px solid #aaa;
+    border-radius: 4px;
+    padding: 3px 6px;
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+
+.task-icons button:hover {
+    background-color: #ddd;
 }
 
 #main {
