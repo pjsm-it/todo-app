@@ -88,6 +88,80 @@ newTaskBtn.addEventListener('click', () => {
         const taskCard = document.createElement('div');
         taskCard.classList.add('task-card');
 
+        taskCard.taskData = task;
+
+        taskCard.addEventListener('click', (e) => {
+            if (e.target.closest('.task-icons')) return;
+
+            mainContent.innerHTML = '';
+
+            const t = taskCard.taskData;
+
+            const form = document.createElement('form');
+
+            // TITLE
+            const inputTitle = document.createElement('input');
+            inputTitle.type = 'text';
+            inputTitle.placeholder = 'Task name';
+            inputTitle.required = true;
+            inputTitle.value = t.title;
+            form.appendChild(inputTitle);
+
+            // PRIORITY
+            const selectPriority = document.createElement('select');
+            ['High', 'Medium', 'Low'].forEach(p => {
+                const option = document.createElement('option');
+                option.value = p.toLowerCase();
+                option.textContent = p;
+                if (p.toLowerCase() === t.priority) option.selected = true;
+                selectPriority.appendChild(option);
+            });
+            form.appendChild(selectPriority);
+
+            // DESCRIPTION
+            const textAreaDesc = document.createElement('textarea');
+            textAreaDesc.placeholder = 'Description / notes (optional)';
+            textAreaDesc.value = t.description;
+            form.appendChild(textAreaDesc);
+
+            // DUE DATE
+            const inputDate = document.createElement('input');
+            inputDate.type = 'date';
+            inputDate.value = t.dueDate;
+            form.appendChild(inputDate);
+
+            // COMPLETED
+            const labelCompleted = document.createElement('label');
+            labelCompleted.textContent = 'Completed ';
+            const checkboxCompleted = document.createElement('input');
+            checkboxCompleted.type = 'checkbox';
+            checkboxCompleted.checked = t.completed;
+            labelCompleted.appendChild(checkboxCompleted);
+            form.appendChild(labelCompleted);
+
+            // EMAIL
+            const inputEmail = document.createElement('input');
+            inputEmail.type = 'email';
+            inputEmail.placeholder = 'Contact email (optional)';
+            inputEmail.value = t.email;
+            form.appendChild(inputEmail);
+
+            // PHONE
+            const inputPhone = document.createElement('input');
+            inputPhone.type = 'tel';
+            inputPhone.placeholder = 'Phone number (optional)';
+            inputPhone.value = t.phone;
+            form.appendChild(inputPhone);
+
+            // SAVE BTN
+            const saveBtn = document.createElement('button');
+            saveBtn.type = 'submit';
+            saveBtn.textContent = 'Save';
+            form.appendChild(saveBtn);
+
+            mainContent.appendChild(form);
+        });
+
         // LEFT SIDE
         const leftDiv = document.createElement('div');
         leftDiv.classList.add('task-left');
