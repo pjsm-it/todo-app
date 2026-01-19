@@ -127,6 +127,10 @@ newTaskBtn.addEventListener('click', () => {
         deleteBtn.textContent = 'Del';
         rightDiv.appendChild(deleteBtn);
 
+        deleteBtn.addEventListener('click', () => {
+            taskCard.remove();
+        });
+
         const upBtn = document.createElement('button');
         upBtn.textContent = '↑';
         rightDiv.appendChild(upBtn);
