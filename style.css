@@ -78,6 +78,10 @@ header h1 {
     box-shadow: 1px 1px 3px rgba(0,0,0,0.1);
 }
 
+.task-card input[type='checkbox'] {
+    pointer-events: none;
+}
+
 .task-left {
     display: flex;
     flex-direction: column;
@@ -139,6 +143,16 @@ form textarea {
     width: 100%;
     box-sizing: border-box;
     padding: 6px;
+}
+
+form button[type='submit'] {
+    padding: 10px 16px;
+    font-size: 1rem;
+    border-radius: 6px;
+    cursor: pointer;
+    background-color: #003366;
+    color: white;
+    border: none;
 }
 
 input[type="date"] {
