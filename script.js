@@ -175,9 +175,23 @@ function createTaskCard(task) {
     upBtn.textContent = '↑';
     rightDiv.appendChild(upBtn);
 
+    upBtn.addEventListener('click', () => {
+        const prev = taskCard.previousElementSibling;
+        if (prev) {
+            taskCard.parentNode.insertBefore(taskCard, prev);
+        }
+    });
+
     const downBtn = document.createElement('button');
     downBtn.textContent = '↓';
     rightDiv.appendChild(downBtn);
+
+    downBtn.addEventListener('click', () => {
+        const next = taskCard.nextElementSibling;
+        if (next) {
+            taskCard.parentNode.insertBefore(taskCard, next.nextSibling);
+        }
+    })
 
     taskCard.appendChild(rightDiv);
 
