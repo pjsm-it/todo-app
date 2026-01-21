@@ -90,6 +90,7 @@ function createTaskForm(editingCard = null) {
 
         if (editingCard) {
             editingCard.taskData = task;
+            updateTask(task);
 
             // LEFT SIDE
             const leftDiv = editingCard.querySelector('.task-left');
@@ -110,6 +111,9 @@ function createTaskForm(editingCard = null) {
 
         } else {
             createTaskCard(task);
+            saveTask(task);
+            // Task created and saved in localstorage
+            // console.log('Task created and saved:', task);
         }
 
         mainContent.innerHTML = '';
@@ -169,6 +173,7 @@ function createTaskCard(task) {
 
     deleteBtn.addEventListener('click', () => {
         taskCard.remove();
+        deleteTask(task.id);
     });
 
     const upBtn = document.createElement('button');
