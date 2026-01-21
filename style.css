@@ -164,3 +164,25 @@ label {
     align-items: center;
     gap: 5px;
 }
+
+.dev-only {
+    display: none;
+    /* hidden */
+    /* display: block; */
+    /* not hidden */ 
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding: 8px 12px;
+    font-size: 0.9rem;
+    background-color: #f44336;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    z-index: 1000;
+}
+
+.dev-only:hover {
+    background-color: #d32f2f;
+}

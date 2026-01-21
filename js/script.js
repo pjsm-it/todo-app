@@ -211,3 +211,14 @@ function createTaskCard(task) {
 newTaskBtn.addEventListener('click', () => {
     createTaskForm(null);
 });
+
+// DEV ONLY: listener for the Clear Storage hidden button
+// test purposes
+const clearStorageBtn = document.getElementById('clear-storage-btn');
+
+clearStorageBtn.addEventListener('click', () => {
+    // Clears tasks from localStorage
+    clearTasks();
+    // Reloads page to clear DOM
+    location.reload();
+})
