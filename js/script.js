@@ -168,7 +168,8 @@ function createTaskCard(task) {
     rightDiv.classList.add('task-icons');
 
     const deleteBtn = document.createElement('button');
-    deleteBtn.textContent = 'Del';
+    // deleteBtn.textContent = 'Del';
+    deleteBtn.innerHTML = '<i class="fa-regular fa-trash-can"></i>';
     rightDiv.appendChild(deleteBtn);
 
     deleteBtn.addEventListener('click', () => {
@@ -177,7 +178,8 @@ function createTaskCard(task) {
     });
 
     const upBtn = document.createElement('button');
-    upBtn.textContent = '↑';
+    // upBtn.textContent = '↑';
+    upBtn.innerHTML = '<i class="fa-regular fa-square-caret-up"></i>';
     rightDiv.appendChild(upBtn);
 
     upBtn.addEventListener('click', () => {
@@ -188,7 +190,8 @@ function createTaskCard(task) {
     });
 
     const downBtn = document.createElement('button');
-    downBtn.textContent = '↓';
+    // downBtn.textContent = '↓';
+    downBtn.innerHTML = '<i class="fa-regular fa-square-caret-down"></i>';
     rightDiv.appendChild(downBtn);
 
     downBtn.addEventListener('click', () => {
