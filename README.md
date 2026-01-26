@@ -33,9 +33,12 @@ This project demonstrates fundamental **front-end development skills**, includin
 ## How to Run
 
 1. Clone the repository:
-2. git clone https://github.com/pjsm-it/todo-app
-3.  Open `index.html` in your browser.  
-4. Start adding and managing tasks immediately — no build tools or server required.
+```bash
+   git clone https://github.com/pjsm-it/todo-app
+   cd todo-app
+```
+2. Open `index.html` in your browser.  
+3. Start adding and managing tasks immediately — no build tools or server required.
 
 ## Notes
 
@@ -44,4 +47,5 @@ This project demonstrates fundamental **front-end development skills**, includin
 
 ## Author
 
-Paulo Melo
+**Paulo Melo**  
+GitHub: [@pjsm-it](https://github.com/pjsm-it)
