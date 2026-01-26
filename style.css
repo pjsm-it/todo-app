@@ -1,3 +1,7 @@
+/* ===========================================
+   Global styles
+   Applies base layout and typography
+   =========================================== */
 html, body {
     height: 100%;
     margin: 0;
@@ -7,9 +11,15 @@ body {
     display: flex;
     flex-direction: column;
     height: 100vh;
-    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f9f9f9;
+    color: #333;
 }
 
+/* ===========================================
+   Header styles
+   Sticky top bar with app title and main action
+   =========================================== */
 header {
     height: 60px;                  
     flex: 0 0 60px;                
@@ -22,6 +32,7 @@ header {
     position: sticky;               
     top: 0;
     z-index: 10;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.15);
 }
 
 header h1 {
@@ -34,20 +45,46 @@ header h1 {
 
 header h1 i {
     font-size: 1.5rem;
-    color: #ff0000;
+    color: #ff4d4d; /* accent color for icon */
 }
 
+/* ===========================================
+   New Task Button
+   Primary action button in header
+   =========================================== */
 #new-task-btn {
-    padding: 8px 16px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    font-weight: 600;
+    color: white;
+    background-color: #007acc; 
+    border: 2px solid #005fa3; 
     border-radius: 8px;
-    border: none;
     cursor: pointer;
+    transition: background-color 0.2s, transform 0.1s, box-shadow 0.2s;
 }
 
+#new-task-btn:hover {
+    background-color: #005fa3; 
+    transform: scale(1.05); 
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2); 
+}
+
+#new-task-btn:active {
+    transform: scale(0.98); 
+    box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+}
+
+/* ===========================================
+   Main content layout
+   Flex container with sidebar and main panel
+   =========================================== */
 #content {
     flex: 1 1 auto;
     display: flex;
     overflow-y: auto;
+    gap: 5px;
+    padding: 5px;
 }
 
 #sidebar {
@@ -55,37 +92,54 @@ header h1 i {
     flex-direction: column;
     flex: 1 1 0;           
     padding: 0 2px;        
+    gap: 5px;
 }
 
+/* Priority columns */
 #high-priority {
     flex: 1;
-    background-color: #f88;
-    margin-bottom: 2px;     
+    background-color: #ff6b6b; 
+    border-radius: 6px;
+    padding: 5px;
 }
 
 #medium-priority {
     flex: 1;
-    background-color: #ff8; 
-    margin-bottom: 2px;
+    background-color: #f0ad4e; 
+    border-radius: 6px;
+    padding: 5px;
 }
 
 #low-priority {
     flex: 1;
-    background-color: #8f8; 
+    background-color: #51cf66; 
+    border-radius: 6px;
+    padding: 5px;
 }
 
+/* ===========================================
+   Task cards
+   Individual tasks with hover interaction
+   =========================================== */
 .task-card {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #fff8dc;
+    background-color: #fff;
     border: 1px solid #ccc;
     padding: 10px;
     margin-bottom: 5px;
-    border-radius: 6px;
-    box-shadow: 1px 1px 3px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    transition: transform 0.1s, box-shadow 0.2s;
 }
 
+.task-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+/* Prevent accidental checkbox clicks during drag/drop (if implemented) */
 .task-card input[type='checkbox'] {
     pointer-events: none;
 }
@@ -100,7 +154,7 @@ header h1 i {
     max-width: 180px;
     white-space: nowrap;
     overflow: hidden;
-    text-overflow: ellipsis;
+    text-overflow: ellipsis; /* ensure long titles do not break layout */
 }
 
 .task-due-date {
@@ -109,6 +163,7 @@ header h1 i {
     color: #666;
 }
 
+/* Action icons on task cards */
 .task-icons {
     display: flex;
     flex-direction: row;
@@ -116,27 +171,55 @@ header h1 i {
 }
 
 .task-icons button {
-    background-color: #eee;
-    border: 1px solid #aaa;
-    border-radius: 4px;
-    padding: 3px 6px;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    padding: 6px 8px;
     cursor: pointer;
-    font-size: 0.9rem;
+    font-size: 1rem; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s, transform 0.1s;
+}
+
+.task-icons button i {
+    pointer-events: none; 
 }
 
 .task-icons button:hover {
-    background-color: #ddd;
+    background-color: #e0e0e0;
+    transform: scale(1.1); 
 }
 
+.task-icons button.delete-btn {
+    color: #d32f2f; 
+}
+
+.task-icons button.up-btn,
+.task-icons button.down-btn {
+    color: #003366; 
+}
+
+/* ===========================================
+   Main panel (right side)
+   Displays selected task details or form
+   =========================================== */
 #main {
     flex: 2 1 0;           
     padding: 0 5px;        
     background-color: #fefcf5;
+    border-radius: 6px;
 }
 
 #main-content {
+    /* dynamic content injected via JS */
 }
 
+/* ===========================================
+   Form styles
+   For adding/editing tasks
+   =========================================== */
 form {
     display: flex;
     flex-direction: column;
@@ -151,6 +234,16 @@ form textarea {
     width: 100%;
     box-sizing: border-box;
     padding: 6px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    transition: border-color 0.2s;
+}
+
+form input:focus,
+form select:focus,
+form textarea:focus {
+    border-color: #007acc;
+    outline: none;
 }
 
 form button[type='submit'] {
@@ -161,23 +254,20 @@ form button[type='submit'] {
     background-color: #003366;
     color: white;
     border: none;
+    transition: background-color 0.2s, transform 0.1s;
 }
 
-input[type="date"] {
-    width: 100%;
+form button[type='submit']:hover {
+    background-color: #005fa3;
+    transform: scale(1.03);
 }
 
-label {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-}
-
+/* ===========================================
+   Developer utility button (hidden in production)
+   =========================================== */
 .dev-only {
     display: none;
-    /* hidden */
     /* display: block; */
-    /* not hidden */ 
     position: fixed;
     bottom: 20px;
     right: 20px;
@@ -193,4 +283,18 @@ label {
 
 .dev-only:hover {
     background-color: #d32f2f;
+}
+
+/* ===========================================
+   Responsive adjustments
+   Stack sidebar and main panel on smaller screens
+   =========================================== */
+@media (max-width: 768px) {
+    #content {
+        flex-direction: column;
+    }
+    #sidebar, #main {
+        width: 100%;
+        flex: 1 1 auto;
+    }
 }

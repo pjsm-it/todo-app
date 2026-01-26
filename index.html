@@ -4,34 +4,54 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>To-Do App</title>
+
+    <!-- Favicon for browser tab -->
     <link rel="icon" type="image/png" href="icons8-tasklist-16.png">
+
+    <!-- Font Awesome icons for UI elements -->
     <link rel="stylesheet" href="vendor/fontawesome/css/all.css">
+
+    <!-- Main stylesheet -->
     <link rel="stylesheet" href="style.css">
+
+    <!-- JavaScript modules loaded with defer to maintain HTML parsing order -->
     <script src="js/script.js" defer></script>
     <script src="js/storage.js" defer></script>
 </head>
 <body>
+    <!-- Header section: app title and main action button -->
     <header>
         <h1>
             To-Do App
-            <i class="fa-regular fa-square-check"></i>
+            <i class="fa-regular fa-square-check"></i> <!-- Decorative check icon -->
         </h1>
-        <button id="new-task-btn">New Task</button>
+        <button id="new-task-btn">New Task</button> <!-- Opens task creation UI -->
     </header>
+
+    <!-- Main content area -->
     <div id="content">
+        <!-- Sidebar for task priority categories -->
         <div id="sidebar">
             <div id="high-priority">
+                <!-- Tasks marked as high priority will be inserted here dynamically -->
             </div>
             <div id="medium-priority">
+                <!-- Tasks marked as medium priority will be inserted here dynamically -->
             </div>
             <div id="low-priority">
+                <!-- Tasks marked as low priority will be inserted here dynamically -->
             </div>
         </div>
+
+        <!-- Main panel for detailed task display -->
         <div id="main">
             <div id="main-content">
+                <!-- Individual task details will be rendered here -->
             </div>
         </div>
     </div>
+
+    <!-- Developer utility button: clears local storage for testing purposes -->
     <button id="clear-storage-btn" class="dev-only">Clear Storage</button>
 </body>
 </html>

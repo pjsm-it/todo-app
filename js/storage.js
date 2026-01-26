@@ -1,16 +1,29 @@
-// Return all saved tasks
+/**
+ * Retrieves all tasks from localStorage.
+ * @returns {Array<Object>} An array of task objects, empty if none exist.
+ */
 function getTasks() {
     return JSON.parse(localStorage.getItem('tasks')) || [];
 }
 
-// Add new task to localStorage
+/**
+ * Saves a new task to localStorage.
+ * @param {Object} task - The task object to save.
+ *   Expected to include at least: { id: string|number, title: string, ... }
+ * @returns {void}
+ */
 function saveTask(task) {
     const tasks = getTasks();
     tasks.push(task);
     localStorage.setItem('tasks', JSON.stringify(tasks));
 }
 
-// Update existing task by id
+/**
+ * Updates an existing task in localStorage.
+ * @param {Object} updatedTask - The task object with updated properties.
+ *   Must include a valid 'id' to match the task in storage.
+ * @returns {void}
+ */
 function updateTask(updatedTask) {
     const tasks = getTasks();
     const index = tasks.findIndex(t => t.id === updatedTask.id);
@@ -20,14 +33,22 @@ function updateTask(updatedTask) {
     }
 }
 
-// Remove task by id
+/**
+ * Deletes a task from localStorage by ID.
+ * @param {string|number} taskId - The ID of the task to remove.
+ * @returns {void}
+ */
 function deleteTask(taskId) {
     let tasks = getTasks();
     tasks = tasks.filter(t => t.id !== taskId);
     localStorage.setItem('tasks', JSON.stringify(tasks));
 }
 
-// Remove all tasks
+/**
+ * Clears all tasks from localStorage.
+ * Intended mainly for development or reset purposes.
+ * @returns {void}
+ */
 function clearTasks() {
     localStorage.removeItem('tasks');
 }
